@@ -1,0 +1,7 @@
+.items{display: inline-block;}
+.items-container
+{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
