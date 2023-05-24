@@ -20,9 +20,10 @@
     <div class="albums row gap-row-4 mt-4">
       <div
         *ngFor="let album of Albums; let i = index"
-        class="col-12 col-sm-6 col-md-4"
+        class="col-12 col-sm-6 col-md-4" routerLink="/photos" [queryParams]="{ albumId:album.id,userId:ID}"
       >
         <div class="card mb-3 text-center text-uppercase border-0 rounded-0">
+          <!-- https://jsonplaceholder.typicode.com/photos?albumId=2 -->
           <div class="card-header text-white fw-bold py-5 fs-6">
             Album {{ album.id }}
           </div>
@@ -32,33 +33,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="col-12 col-sm-6 col-md-4">
-        <div class="card mb-3 text-center text-uppercase border-0 rounded-0">
-          <div class="card-header text-white fw-bold py-5 fs-6">Album 1</div>
-          <div class="card-body py-2">
-            <h5 class="card-title m-0 fs-6">15</h5>
-            <p class="card-text text-black-50">Photos</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card mb-3 text-center text-uppercase border-0 rounded-0">
-          <div class="card-header text-white fw-bold py-5 fs-6">Album 1</div>
-          <div class="card-body py-2">
-            <h5 class="card-title m-0 fs-6">15</h5>
-            <p class="card-text text-black-50">Photos</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4">
-        <div class="card mb-3 text-center text-uppercase border-0 rounded-0">
-          <div class="card-header text-white fw-bold py-5 fs-6">Album 1</div>
-          <div class="card-body py-2">
-            <h5 class="card-title m-0 fs-6">15</h5>
-            <p class="card-text text-black-50">Photos</p>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </div>
