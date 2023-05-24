@@ -6,11 +6,14 @@ import { HeaderComponent } from './components/header/header.component';
 import{HttpClientModule} from '@angular/common/http';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+
+    HeaderComponent,
+    UserInfoComponent
 
   ],
   imports: [
