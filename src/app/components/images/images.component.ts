@@ -24,7 +24,6 @@ export class ImagesComponent implements OnInit {
     this.service.getPhotos(this.albumId).subscribe({
       next: (data) => {
         this.imageList = data;
-        console.log('first', this.imageList);
       },
       error: (err) => console.log(err),
     });
@@ -32,7 +31,6 @@ export class ImagesComponent implements OnInit {
     this.service.getUserById(this.userId).subscribe({
       next: (data) => {
         this.User = data;
-        console.log(data);
       },
     });
   }

@@ -1,4 +1,6 @@
-<app-user-heading [user]="User"></app-user-heading>
+<ng-container *ngIf="User">
+  <app-user-heading [user]="User"></app-user-heading>
+</ng-container>
 <div class="imgs-comp">
   <h2>Photos 📷</h2>
 
