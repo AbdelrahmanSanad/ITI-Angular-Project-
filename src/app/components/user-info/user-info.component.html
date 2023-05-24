@@ -1,7 +1,7 @@
 <div *ngIf="User" class="user">
   <app-user-heading [user]="User"></app-user-heading>
   <!-- user albums  -->
-  <div class="container" *ngIf="Albums.length">
+  <div class="container" *ngIf="Albums?.length">
     <h5 class="heading border-bottom text-center pb-2">
       {{ User.name }}'s Albums
     </h5>
