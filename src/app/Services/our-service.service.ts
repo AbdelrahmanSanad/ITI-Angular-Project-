@@ -17,6 +17,8 @@ export class OurServiceService {
     return this.myService.get(this.base_URL + '/albums?userId=' + id);
   }
   getPhotos(id: any) {
-    return this.myService.get(this.base_URL + '/photos?albumId=' + id);
-  }
+    return this.myService.get(this.base_URL + '/photos?albumId=' + id)
+
+}
+  
 }

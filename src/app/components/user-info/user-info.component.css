@@ -1,0 +1,20 @@
+.info {
+  background-color: #376aa6;
+}
+.heading {
+  color: #e06c4f;
+}
+.albums .card {
+  box-shadow: 0px 2px 2px 0px #2125297d;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.albums .card:hover {
+  transform: scale(1.05);
+}
+.albums .card-header {
+  background-color: #e06c4f !important;
+}
+.albums .card-text {
+  font-size: 10px !important;
+}
