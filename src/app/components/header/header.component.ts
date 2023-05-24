@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OurServiceService } from 'src/app/Services/our-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,9 @@ export class HeaderComponent implements OnInit {
 
 
   myUsers:any;
-  constructor(private userService:OurServiceService)
+  constructor(private myRoute:Router , private userService:OurServiceService)
   {
-
+      
   }
   ngOnInit(){
 

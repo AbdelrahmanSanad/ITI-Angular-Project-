@@ -19,7 +19,7 @@ export class UserInfoComponent implements OnInit {
     this.ID = myRoute.snapshot.params['id'];
   }
   ngOnInit(): void {
-    this.OurService.getUserById(1).subscribe({
+    this.OurService.getUserById(this.ID).subscribe({
       next: (data) => {
         this.User = data;
       },
@@ -27,7 +27,7 @@ export class UserInfoComponent implements OnInit {
         console.log(err);
       },
     });
-    this.OurService.getAlbums(1).subscribe({
+    this.OurService.getAlbums(this.ID).subscribe({
       next: (data) => {
         this.Albums = data;
       },
