@@ -28,3 +28,39 @@
   </div>
 
 </div>
+
+<section>
+  <div >
+    <a class="user" href="#"> Users</a>
+  </div>
+  <div>
+     <a href="#" class="addUser">+ Add users</a>
+  </div>
+</section>
+
+<div style="width: 90%; margin: auto;" class="overflow-auto">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Number</th>
+        <th scope="col">Adress</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor=" let user of myUsers">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.address.city}}</td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
