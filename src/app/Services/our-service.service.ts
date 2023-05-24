@@ -4,20 +4,21 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class OurServiceService {
-  base_URL = 'https://jsonplaceholder.typicode.com/users';
-  album_URL = 'https://jsonplaceholder.typicode.com/albums?userId=';
-  photos_URL = 'https://jsonplaceholder.typicode.com/photos?albumId=';
-  constructor(private myService: HttpClient) {}
+  private readonly base_URL = 'https://jsonplaceholder.typicode.com';
+
+  constructor(private readonly myService: HttpClient) {}
   getUsers() {
-    return this.myService.get(this.base_URL);
+    return this.myService.get(this.base_URL + '/users');
   }
   getUserById(id: any) {
-    return this.myService.get(this.base_URL + '/' + id);
+    return this.myService.get(this.base_URL + '/users/' + id);
   }
   getAlbums(id: any) {
-    return this.myService.get(this.album_URL + id);
+    return this.myService.get(this.base_URL + '/albums?userId=' + id);
   }
   getPhotos(id: any) {
-    return this.myService.get(this.photos_URL + id);
-  }
+    return this.myService.get(this.base_URL + '/photos?albumId=' + id)
+
+}
+  
 }
