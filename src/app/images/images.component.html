@@ -1,0 +1,11 @@
+<div class="imgs-comp">
+  <h2>Photos 📷</h2>
+
+  <hr />
+
+  <div class="image-list">
+    <div class="img-container" *ngFor="let image of imageList">
+      <img src="{{ image.url }}" alt="{{ image.title }}" />
+    </div>
+  </div>
+</div>

@@ -1,31 +1,22 @@
 import { Injectable } from '@angular/core';
-import{HttpClient} from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OurServiceService {
+  private readonly base_URL = 'https://jsonplaceholder.typicode.com';
 
-  base_URL='https://jsonplaceholder.typicode.com/users';
-  album_URL="https://jsonplaceholder.typicode.com/albums?userId=";
-  photos_URL="https://jsonplaceholder.typicode.com/photos?albumId=";
-  constructor(private myService:HttpClient)
-  {
-
+  constructor(private readonly myService: HttpClient) {}
+  getUsers() {
+    return this.myService.get(this.base_URL + '/users');
   }
-   getUsers()
-    {
-      return this.myService.get(this.base_URL);
-    }
-    getUserById(id:any)
-    {
-      return this.myService.get(this.base_URL+'/'+id);
-    }
-    getAlbums(id:any)
-    {
-      return this.myService.get(this.album_URL+id);
-    }
-    getPhotos(id:any)
-    {
-      return this.myService.get(this.photos_URL+id);
-    }
+  getUserById(id: any) {
+    return this.myService.get(this.base_URL + '/users/' + id);
+  }
+  getAlbums(id: any) {
+    return this.myService.get(this.base_URL + '/albums?userId=' + id);
+  }
+  getPhotos(id: any) {
+    return this.myService.get(this.base_URL + '/photos?albumId=' + id);
+  }
 }
