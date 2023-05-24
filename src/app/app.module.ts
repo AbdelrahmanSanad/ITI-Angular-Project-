@@ -8,6 +8,7 @@ import { ImagesComponent } from './components/images/images.component';
 import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { UserHeadingComponent } from './components/user-heading/user-heading.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     AppComponent,
     HeaderComponent,
     ImagesComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    UserHeadingComponent
 
   ],
   imports: [

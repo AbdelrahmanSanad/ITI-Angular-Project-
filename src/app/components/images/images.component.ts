@@ -8,19 +8,17 @@ import { OurServiceService } from 'src/app/Services/our-service.service';
   styleUrls: ['./images.component.css'],
 })
 export class ImagesComponent implements OnInit {
-
-  albumId:any;
+  albumId: any;
   imageList: any;
-  userId:any;
-  constructor(private service: OurServiceService, private myRoute:ActivatedRoute )
-  {
-
-    this.albumId = this.myRoute.snapshot.queryParams["albumId"];
-    this.userId=this.myRoute.snapshot.queryParams["userId"];
-
+  userId: any;
+  User: any;
+  constructor(
+    private service: OurServiceService,
+    private myRoute: ActivatedRoute
+  ) {
+    this.albumId = this.myRoute.snapshot.queryParams['albumId'];
+    this.userId = this.myRoute.snapshot.queryParams['userId'];
   }
-
-
 
   ngOnInit() {
     this.service.getPhotos(this.albumId).subscribe({
@@ -31,14 +29,11 @@ export class ImagesComponent implements OnInit {
       error: (err) => console.log(err),
     });
 
-    // this.service.getUserById(this.userId).subscribe(
-    //   {
-    //     next:(data)=>
-    //     {
-    //       this.User=data;
-    //       console.log(data);
-    //     }
-    //   })
-
+    this.service.getUserById(this.userId).subscribe({
+      next: (data) => {
+        this.User = data;
+        console.log(data);
+      },
+    });
   }
 }
