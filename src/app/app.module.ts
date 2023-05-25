@@ -6,9 +6,10 @@ import { HeaderComponent } from './components/header/header.component';
 import{HttpClientModule} from '@angular/common/http';
 import { ImagesComponent } from './components/images/images.component';
 import { NgClass } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserHeadingComponent } from './components/user-heading/user-heading.component';
+import { FormsComponent } from './components/forms/forms.component';
 
 
 @NgModule({
@@ -17,14 +18,19 @@ import { UserHeadingComponent } from './components/user-heading/user-heading.com
     HeaderComponent,
     ImagesComponent,
     UserInfoComponent,
-    UserHeadingComponent
+    UserHeadingComponent,
+    FormsComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+
+
+
 
   ],
   providers: [],

@@ -1,0 +1,56 @@
+.inputContainer
+{
+  flex-wrap: wrap;
+  width: 75%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-items:center;
+  justify-content: space-evenly;
+}
+
+input
+{
+  flex-wrap: wrap;
+  display: inline-block;
+  border:none;
+  border-bottom: 0.5px solid saddlebrown;
+}
+label
+{
+  flex-wrap: wrap;
+  display: inline-block;
+}
+.formContainer
+{
+  margin: auto;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  width: 40%;
+  min-height: 300px;
+  border: 1px solid red ;
+  justify-content: center;
+  background-color: aqua;
+  margin-top: 70px;
+  z-index: 6;
+}
+#myForm
+{
+  position: absolute;
+  width:100%;
+
+
+}
+.red
+{
+  border: 1px solid red;
+}
+
+.exit
+{
+  width: 100%;
+
+}

@@ -1,3 +1,7 @@
+*
+{
+  box-sizing: border-box;
+}
 .items{display: inline-block;}
 .items-container
 {
@@ -55,4 +59,8 @@ section div
 {
   color: azure;
   text-decoration: none;
+  cursor:pointer;
 }
+/* Input Styles */
+
+

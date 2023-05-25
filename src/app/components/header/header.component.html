@@ -29,14 +29,19 @@
 
 </div>
 
+
 <section>
   <div >
     <a class="user" href="#"> Users</a>
   </div>
-  <div>
-     <a href="#" class="addUser">+ Add users</a>
+  <div style="cursor: pointer;">
+     <a  class="addUser" (click)="getForm()">+ Add users</a>
   </div>
 </section>
+
+  <app-forms [show]="showForm" (myHide)="hidden()" (newUser)="addUser($event)">
+
+  </app-forms>
 
 <div style="width: 90%; margin: auto;" class="overflow-auto">
   <table class="table table-striped">
