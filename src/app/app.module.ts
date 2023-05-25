@@ -9,8 +9,6 @@ import { NgClass } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserHeadingComponent } from './components/user-heading/user-heading.component';
-
-import { FormsComponent } from './components/forms/forms.component';
 import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
@@ -20,7 +18,6 @@ import { ErrorComponent } from './components/error/error.component';
     ImagesComponent,
     UserInfoComponent,
     UserHeadingComponent,
-    FormsComponent,
     ErrorComponent,
   ],
   imports: [

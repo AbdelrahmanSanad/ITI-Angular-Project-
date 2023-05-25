@@ -24,6 +24,61 @@
     <div class="items">
       <a href="#">Sign Up </a>
     </div>
+
+  </div>
+
+</div>
+
+<div id="myForm">
+  <div class="formContainer">
+    <div class="exit">X</div>
+    <form style="width: 100%" [formGroup]="myValidation">
+      <h4 class="user-info">User Information</h4>
+      <hr />
+      <div class="inputContainer">
+        <label>Name</label>
+        <input [ngClass]="nameNotValid() ? 'red' : ''" type="text" name="Name" formControlName="name" />
+      </div>
+      <div *ngIf="nameNotValid()" style="color: red; font-size: 0.8em; text-align: center">
+        Please Enter A valid Name
+      </div>
+      <div class="inputContainer">
+        <label>Email</label><input [ngClass]="emailNotValid() ? 'red' : ''" type="text" name="email"
+          formControlName="email" />
+      </div>
+      <div *ngIf="emailNotValid()" style="color: red; font-size: 0.8em; text-align: center">
+        Please Enter A valid Email
+      </div>
+
+      <div class="inputContainer">
+        <label>Phone</label><input [ngClass]="phoneNotValid() ? 'red' : ''" type="number" formControlName="phone" />
+      </div>
+      <div *ngIf="phoneNotValid()" style="color: red; font-size: 0.8em; text-align: center">
+        Please Enter A valid Phone
+      </div>
+
+      <div>
+        <h6 style="margin-left: 70px">Address</h6>
+        <div class="inputContainer">
+          <label>Street</label>
+          <input [ngClass]="streetNotValid() ? 'red' : ''" type="text" formControlName="street" />
+        </div>
+        <div class="inputContainer">
+          <label>Suite</label>
+          <input [ngClass]="suiteNotValid() ? 'red' : ''" type="text" formControlName="suite" />
+        </div>
+        <div class="inputContainer">
+          <label>City</label>
+          <input type="text" [ngClass]="cityNotValid() ? 'red' : ''" formControlName="city" />
+        </div>
+        <div *ngIf="cityNotValid()" style="color: red; font-size: 0.8em; text-align: center">
+          Please Enter A valid City
+        </div>
+      </div>
+      <div class="inputContainer">
+        <input type="button" value="Register" (click)="getData()" />
+      </div>
+    </form>
   </div>
 </div>
 
@@ -31,22 +86,12 @@
   <div>
     <a class="user" href="#"> Users</a>
   </div>
-  <div style="cursor: pointer">
+  <div style="cursor: pointer;">
     <a class="addUser" (click)="getForm()">+ Add users</a>
   </div>
 </section>
 
-<ng-container *ngIf="showForm">
-  <app-forms
-    [show]="showForm"
-    (myHide)="hidden()"
-    (newUser)="addUser($event)"
-    [dataFromParent]="sentUserToForm"
-  >
-  </app-forms>
-</ng-container>
-
-<div style="width: 90%; margin: auto" class="overflow-auto">
+<div style="width: 90%; margin: auto;" class="overflow-auto">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -60,25 +105,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of myUsers">
-        <th scope="row">{{ user.id }}</th>
-        <td>
-          <a routerLink="/users/{{ user.id }}"> {{ user.name }} </a>
-        </td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.phone }}</td>
-        <td>{{ user.address.city }}</td>
-        <td class="edit-user-btn">
-          <button (click)="getUserById(user.id)">Edit</button>
-        </td>
-        <td class="del-user-btn">
-          <button (click)="dellUser(user.id)">Delete</button>
-        </td>
+      <tr *ngFor=" let user of myUsers">
+        <th scope="row">{{user.id}}</th>
+        <td> <a routerLink="/users/{{user.id}}"> {{user.name}} </a></td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.address.city}}</td>
+        <td>Edit</td>
+        <td>Delete</td>
       </tr>
     </tbody>
-    <div class="confirm hidden">
-      <h3>Do You Want To Dellete ?</h3>
-      <div class="btns"><button>Yes</button> <button>No</button></div>
-    </div>
   </table>
 </div>
