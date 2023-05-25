@@ -30,6 +30,9 @@ export class UserInfoComponent implements OnInit {
       },
     });
   }
+  scroll(el: HTMLElement) {
+    el.scrollIntoView();
+  }
   ngOnInit(): void {
     // get user information
     this.OurService.getUserById(this.ID).subscribe({

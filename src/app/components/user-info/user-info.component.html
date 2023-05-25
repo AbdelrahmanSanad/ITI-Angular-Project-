@@ -10,8 +10,9 @@
       <div
         *ngFor="let album of Albums; let i = index"
         class="col-12 col-sm-6 col-md-4"
-        routerLink="/photos"
-        [queryParams]="{ albumId: album.id, userId: ID }"
+        routerLink="album/{{ album.id }}"
+        (click)="scroll(target)"
+        for="#target"
       >
         <div class="card mb-3 text-center text-uppercase border-0 rounded-0">
           <div class="card-header text-white fw-bold py-5 fs-6">
@@ -26,5 +27,6 @@
         </div>
       </div>
     </div>
+    <router-outlet #target></router-outlet>
   </div>
 </div>

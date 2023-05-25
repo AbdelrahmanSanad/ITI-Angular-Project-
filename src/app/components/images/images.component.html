@@ -1,14 +1,13 @@
-<ng-container *ngIf="User">
-  <app-user-heading [user]="User"></app-user-heading>
-</ng-container>
-<div class="imgs-comp">
-  <h2>Photos 📷</h2>
-
-  <hr />
-
-  <div class="image-list">
-    <div class="img-container" *ngFor="let image of imageList">
-      <img src="{{ image.url }}" alt="{{ image.title }}" />
+<ng-container class="pt-5">
+  <div *ngIf="imageList?.length" class="mt-5">
+    <h5 class="heading border-bottom text-center pb-2 mt-5">Photos 📷</h5>
+    <div class="row mt-4">
+      <div
+        *ngFor="let image of imageList"
+        class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3"
+      >
+        <img src="{{ image.url }}" alt="{{ image.title }}" class="w-100" />
+      </div>
     </div>
   </div>
-</div>
+</ng-container>
