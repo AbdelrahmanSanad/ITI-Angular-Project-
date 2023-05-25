@@ -6,11 +6,12 @@ import { HeaderComponent } from './components/header/header.component';
 import{HttpClientModule} from '@angular/common/http';
 import { ImagesComponent } from './components/images/images.component';
 import { NgClass } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserHeadingComponent } from './components/user-heading/user-heading.component';
-import { ErrorComponent } from './components/error/error.component';
 
+import { FormsComponent } from './components/forms/forms.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,18 @@ import { ErrorComponent } from './components/error/error.component';
     ImagesComponent,
     UserInfoComponent,
     UserHeadingComponent,
+    FormsComponent
     ErrorComponent
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+
+
+
 
   ],
   providers: [],

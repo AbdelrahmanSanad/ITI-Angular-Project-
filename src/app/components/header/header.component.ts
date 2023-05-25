@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OurServiceService } from 'src/app/Services/our-service.service';
 import { Router } from '@angular/router';
+import{FormControl,FormGroup,Validators} from '@angular/forms'
+
 
 @Component({
   selector: 'app-header',
@@ -9,11 +11,13 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-
+@Input() myUser:any;
+  showForm:boolean= false;
   myUsers:any;
+
   constructor(private myRoute:Router , private userService:OurServiceService)
   {
-      
+
   }
   ngOnInit(){
 
@@ -27,5 +31,17 @@ export class HeaderComponent implements OnInit {
         error:(err)=>{console.log(err)}
 
       })
+  }
+  getForm()
+  {
+    this.showForm=true;
+  }
+  hidden()
+  {
+    this.showForm=false;
+  }
+  addUser(newUser:any)
+  {
+    this.myUsers.push({id: this.myUsers.length+1,...newUser});
   }
 }
