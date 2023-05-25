@@ -1,66 +1,60 @@
-*
-{
+* {
   box-sizing: border-box;
 }
-.items{display: inline-block;}
-.items-container
-{
+.items {
+  display: inline-block;
+}
+.items-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: 65%;
   flex-wrap: wrap;
 }
-.header-container
-{
+.header-container {
   display: flex;
 
   justify-content: space-around;
   align-items: center;
   padding-top: 20px 0px 20px 0px;
-  height:70px;
-
-
+  height: 70px;
 }
-.logo a
-{
+.logo a {
   color: rgb(243, 167, 26);
   text-decoration: none;
   display: inline-block;
 }
-.items-container a
-{
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.items-container a {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   text-decoration: none;
   color: black;
   font-size: 1.06em;
 }
-section
-{
+section {
   height: 75px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: rgb(44, 139, 228);
 }
-section div
-{
+section div {
   display: inline-block;
 }
-.addUser
-{
+.addUser {
   background-color: white;
-  color:rgb(44, 139, 228);
+  color: rgb(44, 139, 228);
   text-decoration: none;
   padding: 4px 10px 4px 10px;
   font-weight: bold;
 }
-.user
-{
+.user {
   color: azure;
   text-decoration: none;
-  cursor:pointer;
+  cursor: pointer;
 }
 /* Input Styles */
 
-
+.hidden {
+  display: none;
+}

@@ -1,5 +1,4 @@
-.inputContainer
-{
+.inputContainer {
   flex-wrap: wrap;
   width: 75%;
   margin: auto;
@@ -7,50 +6,66 @@
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  align-items:center;
+  align-items: center;
   justify-content: space-evenly;
 }
 
-input
-{
+input {
   flex-wrap: wrap;
   display: inline-block;
-  border:none;
+  border: none;
   border-bottom: 0.5px solid saddlebrown;
 }
-label
-{
+label {
   flex-wrap: wrap;
   display: inline-block;
 }
-.formContainer
-{
+
+#myForm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.red {
+  border: 1px solid red;
+}
+
+.formContainer {
+  position: relative;
   margin: auto;
   flex-wrap: wrap;
   display: flex;
   align-items: center;
   width: 40%;
   min-height: 300px;
-  border: 1px solid red ;
+  border-radius: 8px;
   justify-content: center;
-  background-color: aqua;
+  background-color: #fff;
   margin-top: 70px;
+  padding: 35px;
   z-index: 6;
 }
-#myForm
-{
+
+.user-info {
+  text-align: center;
+  color: orange;
+}
+
+.exit {
   position: absolute;
-  width:100%;
-
-
-}
-.red
-{
-  border: 1px solid red;
-}
-
-.exit
-{
-  width: 100%;
-
+  right: 10px;
+  top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
 }

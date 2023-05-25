@@ -1,42 +1,91 @@
 <div id="myForm" *ngIf="show">
   <div class="formContainer">
-  <div class="exit" (click)="hideMe()">
-    X
-  </div>
-    <form style="width: 100%;" [formGroup]="myValidation">
+    <div class="exit" (click)="hideMe()">X</div>
+    <form style="width: 100%" [formGroup]="myValidation">
+      <h4 class="user-info">User Information</h4>
+      <hr />
       <div class="inputContainer">
-        <label>Name</label> <input  [ngClass]="nameNotValid()? 'red':'' " type="text" name="Name"  formControlName="name">
+        <label>Name</label>
+        <input
+          [ngClass]="nameNotValid() ? 'red' : ''"
+          type="text"
+          name="Name"
+          formControlName="name"
+        />
       </div>
-      <div *ngIf="nameNotValid()" style="color: red; font-size: 0.8em; text-align: center;" > Please Enter A valid Name </div>
-       <div class="inputContainer" >
-        <label>Email</label><input [ngClass]="emailNotValid()?'red':'' " type="text" name="email" formControlName="email">
-       </div>
-       <div *ngIf="emailNotValid()" style="color: red; font-size: 0.8em; text-align: center;" > Please Enter A valid Email </div>
+      <div
+        *ngIf="nameNotValid()"
+        style="color: red; font-size: 0.8em; text-align: center"
+      >
+        Please Enter A valid Name
+      </div>
+      <div class="inputContainer">
+        <label>Email</label
+        ><input
+          [ngClass]="emailNotValid() ? 'red' : ''"
+          type="text"
+          name="email"
+          formControlName="email"
+        />
+      </div>
+      <div
+        *ngIf="emailNotValid()"
+        style="color: red; font-size: 0.8em; text-align: center"
+      >
+        Please Enter A valid Email
+      </div>
 
-       <div class="inputContainer">
-        <label>Phone</label><input [ngClass]="phoneNotValid()? 'red':'' " type="number" formControlName="phone">
-       </div>
-       <div *ngIf="phoneNotValid()" style="color: red; font-size: 0.8em; text-align: center;" > Please Enter A valid Phone </div>
+      <div class="inputContainer">
+        <label>Phone</label
+        ><input
+          [ngClass]="phoneNotValid() ? 'red' : ''"
+          type="number"
+          formControlName="phone"
+        />
+      </div>
+      <div
+        *ngIf="phoneNotValid()"
+        style="color: red; font-size: 0.8em; text-align: center"
+      >
+        Please Enter A valid Phone
+      </div>
 
-       <div >
-
-         <h6 style="margin-left: 70px;">Address</h6>
-          <div class="inputContainer">
-            <label>Street</label> <input [ngClass]="streetNotValid()? 'red':'' " type="text" formControlName="street">
-          </div>
-          <div class="inputContainer">
-            <label>Suite</label> <input [ngClass]="suiteNotValid()? 'red':'' " type="text" formControlName="suite">
-          </div>
-          <div class="inputContainer">
-            <label>City</label> <input type="text" [ngClass]="cityNotValid()? 'red':'' " formControlName="city" >
-          </div>
-          <div *ngIf="cityNotValid()" style="color: red; font-size: 0.8em; text-align: center;" > Please Enter A valid City </div>
-
-       </div>
-       <div class="inputContainer">
-          <input type="button" value="Register" (click)="getData()">
-       </div>
-
+      <div>
+        <h6 style="margin-left: 70px">Address</h6>
+        <div class="inputContainer">
+          <label>Street</label>
+          <input
+            [ngClass]="streetNotValid() ? 'red' : ''"
+            type="text"
+            formControlName="street"
+          />
+        </div>
+        <div class="inputContainer">
+          <label>Suite</label>
+          <input
+            [ngClass]="suiteNotValid() ? 'red' : ''"
+            type="text"
+            formControlName="suite"
+          />
+        </div>
+        <div class="inputContainer">
+          <label>City</label>
+          <input
+            type="text"
+            [ngClass]="cityNotValid() ? 'red' : ''"
+            formControlName="city"
+          />
+        </div>
+        <div
+          *ngIf="cityNotValid()"
+          style="color: red; font-size: 0.8em; text-align: center"
+        >
+          Please Enter A valid City
+        </div>
+      </div>
+      <div class="inputContainer">
+        <input type="button" value="Register" (click)="getData()" />
+      </div>
     </form>
-</div>
+  </div>
 </div>

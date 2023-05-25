@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import{HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ImagesComponent } from './components/images/images.component';
 import { NgClass } from '@angular/common';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserHeadingComponent } from './components/user-heading/user-heading.component';
 
@@ -20,21 +20,17 @@ import { ErrorComponent } from './components/error/error.component';
     ImagesComponent,
     UserInfoComponent,
     UserHeadingComponent,
-    FormsComponent
-    ErrorComponent
+    FormsComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
-
-
-
-
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

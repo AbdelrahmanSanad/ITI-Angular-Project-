@@ -1,4 +1,4 @@
-<div class="header-container" >
+<div class="header-container">
   <div class="logo">
     <a href="#"> LOGO </a>
   </div>
@@ -24,26 +24,29 @@
     <div class="items">
       <a href="#">Sign Up </a>
     </div>
-
   </div>
-
 </div>
 
-
 <section>
-  <div >
+  <div>
     <a class="user" href="#"> Users</a>
   </div>
-  <div style="cursor: pointer;">
-     <a  class="addUser" (click)="getForm()">+ Add users</a>
+  <div style="cursor: pointer">
+    <a class="addUser" (click)="getForm()">+ Add users</a>
   </div>
 </section>
 
-  <app-forms [show]="showForm" (myHide)="hidden()" (newUser)="addUser($event)">
-
+<ng-container *ngIf="showForm">
+  <app-forms
+    [show]="showForm"
+    (myHide)="hidden()"
+    (newUser)="addUser($event)"
+    [dataFromParent]="sentUserToForm"
+  >
   </app-forms>
+</ng-container>
 
-<div style="width: 90%; margin: auto;" class="overflow-auto">
+<div style="width: 90%; margin: auto" class="overflow-auto">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -57,15 +60,25 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor=" let user of myUsers">
-        <th scope="row">{{user.id}}</th>
-        <td > <a routerLink="/users/{{user.id}}">  {{user.name}} </a></td>
-        <td>{{user.email}}</td>
-        <td>{{user.phone}}</td>
-        <td>{{user.address.city}}</td>
-        <td>Edit</td>
-        <td>Delete</td>
+      <tr *ngFor="let user of myUsers">
+        <th scope="row">{{ user.id }}</th>
+        <td>
+          <a routerLink="/users/{{ user.id }}"> {{ user.name }} </a>
+        </td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.address.city }}</td>
+        <td class="edit-user-btn">
+          <button (click)="getUserById(user.id)">Edit</button>
+        </td>
+        <td class="del-user-btn">
+          <button (click)="dellUser(user.id)">Delete</button>
+        </td>
       </tr>
     </tbody>
+    <div class="confirm hidden">
+      <h3>Do You Want To Dellete ?</h3>
+      <div class="btns"><button>Yes</button> <button>No</button></div>
+    </div>
   </table>
 </div>
