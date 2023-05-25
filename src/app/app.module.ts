@@ -9,8 +9,9 @@ import { NgClass } from '@angular/common';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserHeadingComponent } from './components/user-heading/user-heading.component';
-import { FormsComponent } from './components/forms/forms.component';
 
+import { FormsComponent } from './components/forms/forms.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { FormsComponent } from './components/forms/forms.component';
     UserInfoComponent,
     UserHeadingComponent,
     FormsComponent
-
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
