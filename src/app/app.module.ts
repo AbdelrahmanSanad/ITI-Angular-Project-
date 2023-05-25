@@ -9,6 +9,7 @@ import { NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserHeadingComponent } from './components/user-heading/user-heading.component';
+import { ErrorComponent } from './components/error/error.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UserHeadingComponent } from './components/user-heading/user-heading.com
     HeaderComponent,
     ImagesComponent,
     UserInfoComponent,
-    UserHeadingComponent
+    UserHeadingComponent,
+    ErrorComponent
 
   ],
   imports: [
