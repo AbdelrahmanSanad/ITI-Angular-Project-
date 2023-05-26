@@ -10,11 +10,21 @@ import { ThisReceiver } from '@angular/compiler';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  // @Input() myUser: any;
-  showForm: boolean = false;
+  // properties
   myUsers: any;
   sentUserToForm: any;
+  newUser: boolean = false;
+  showPopUp: boolean = false;
+  userId: any;
+  show: boolean = false;
+  // #######################################
 
+  constructor(
+    private myRoute: Router,
+    private userService: OurServiceService
+  ) {}
+
+  // Form Validation
   myValidation = new FormGroup({
     name: new FormControl('', [
       Validators.required,
@@ -27,10 +37,7 @@ export class HeaderComponent implements OnInit {
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
       ),
     ]),
-    phone: new FormControl('', [
-      Validators.required,
-      Validators.pattern(/^\+?20\s?(\d{2}|\d{3})[\s.-]?\d{3}[\s.-]?\d{4}$/),
-    ]),
+    phone: new FormControl('', [Validators.required]),
     street: new FormControl('', [Validators.minLength(3), Validators.required]),
     suite: new FormControl('', [Validators.required]),
     city: new FormControl('', [
@@ -40,28 +47,13 @@ export class HeaderComponent implements OnInit {
     ]),
   });
 
-  getData() {
-    if (this.myValidation.valid) {
-      this.myUsers.push({
-        name: this.myValidation.value.name,
-        email: this.myValidation.value.email,
-        phone: this.myValidation.value.phone,
-        address: {
-          city: this.myValidation.value.city,
-          street: this.myValidation.value.street,
-          suite: this.myValidation.value.suite,
-        },
-      });
-    }
-  }
-
+  // If Field not valid
   nameNotValid() {
     return (
       this.myValidation.controls['name'].invalid &&
       this.myValidation.controls['name'].touched
     );
   }
-
   emailNotValid() {
     return (
       this.myValidation.controls['email'].invalid &&
@@ -92,10 +84,9 @@ export class HeaderComponent implements OnInit {
       this.myValidation.controls['suite'].touched
     );
   }
-  constructor(
-    private myRoute: Router,
-    private userService: OurServiceService
-  ) {}
+  // ##########################################
+
+  // Get Users list from Api
   ngOnInit() {
     this.userService.getUsers().subscribe({
       next: (data) => {
@@ -107,42 +98,118 @@ export class HeaderComponent implements OnInit {
       },
     });
   }
-  getForm() {
-    this.showForm = true;
-  }
-  hidden() {
-    this.showForm = false;
-  }
+  // #################################
 
-  addUser(newUser: any) {
-    this.myUsers.push({ id: this.myUsers.length + 1, ...newUser });
-  }
-  // editing & Deleting
-
-  getUserById(id: any) {
-    for (const user of this.myUsers) {
-      if (user.id == id) {
-        this.sentUserToForm = user;
-        // console.log(user);
-        // console.log(this.sentUserToForm);
-        return;
-      }
+  pushNewUser() {
+    if (this.myValidation.valid) {
+      this.myUsers.push({
+        id: this.myUsers.length + 1,
+        name: this.myValidation.value.name,
+        email: this.myValidation.value.email,
+        phone: this.myValidation.value.phone,
+        address: {
+          city: this.myValidation.value.city,
+          street: this.myValidation.value.street,
+          suite: this.myValidation.value.suite,
+        },
+      });
     }
-    this.getForm();
   }
-  // editUser(id: any) {
-  //   console.log('all users 👇🏼');
-  //   console.log(this.myUsers);
 
-  //   console.log('editing user = ' + id);
-  // }
+  addNewUserBtn() {
+    this.showPopUp = true;
+    this.newUser = true;
+    this.myValidation.patchValue({
+      name: '',
+      email: '',
+      phone: '',
+      city: '',
+      suite: '',
+      street: '',
+    });
+  }
 
-  dellUser(id: any) {
-    this.myUsers.splice(id - 1, 1);
-    for (let i = id - 1; i < this.myUsers.length; i++) {
+  saveBtnClicked() {
+    if (this.newUser) {
+      this.pushNewUser();
+    } else {
+      this.submitEditing();
+    }
+  }
+
+  //##################### Edit user #####################
+  editUserBtn(user: any) {
+    this.showPopUp = true;
+    this.newUser = false;
+
+    this.myValidation.patchValue({
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
+      city: user.address.city,
+      suite: user.address.suite,
+      street: user.address.street,
+    });
+    this.userId = user.id;
+  }
+
+  submitEditing() {
+    if (this.myValidation.valid) {
+      const newObj = {
+        id: this.userId,
+        name: this.myValidation.value.name,
+        email: this.myValidation.value.email,
+        phone: this.myValidation.value.phone,
+        address: {
+          city: this.myValidation.value.city,
+          street: this.myValidation.value.street,
+          suite: this.myValidation.value.suite,
+        },
+      };
+
+      // Replacing one Object with the new Obj in the Array
+      this.myUsers.splice(this.userId - 1, 1, newObj);
+      console.log('Valid Credentials 👍');
+      console.log(this.myValidation.value);
+      return;
+    }
+    console.log('Not Valid 🤷‍♂️');
+  }
+
+  //##################### Delete user #####################
+
+  deleteUserBtn(id: any) {
+    this.show = true;
+    this.userId = id;
+  }
+
+  yesDell() {
+    this.myUsers.splice(this.userId - 1, 1);
+    for (let i = this.userId - 1; i < this.myUsers.length; i++) {
       const element = this.myUsers[i];
       element.id = element.id - 1;
     }
-    console.log('Deleted user = ' + id);
+    console.log('Deleted user = ' + this.userId);
+    this.show = false;
+  }
+
+  noDell() {
+    this.show = false;
+  }
+  // ##############################################
+  hideFormOnBgClick(e: MouseEvent) {
+    const clickedElement = e.target as HTMLElement;
+    if (clickedElement.id == 'myForm') {
+      this.showPopUp = false;
+    }
+  }
+
+  hideDellOnBgClick(e: MouseEvent) {
+    const clickedElement = e.target as HTMLElement;
+    console.log(clickedElement);
+
+    if (clickedElement.id == 'con-bg') {
+      this.show = false;
+    }
   }
 }
