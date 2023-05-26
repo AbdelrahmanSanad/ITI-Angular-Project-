@@ -1,0 +1,198 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "admin": false,
+      "email": "example@wxample.com",
+      "password": "password1",
+      "username": "user1"
+    },
+    {
+      "id": 2,
+      "admin": false,
+      "email": "example@user2.com",
+      "password": "password2",
+      "username": "user2"
+    },
+    {
+      "id": 3,
+      "admin": false,
+      "email": "example@user3.com",
+      "password": "password3",
+      "username": "user3"
+    },
+    {
+      "id": 4,
+      "admin": false,
+      "email": "example@user4.com",
+      "password": "password4",
+      "username": "user4"
+    },
+    {
+      "username": "hamada",
+      "password": "hamada",
+      "email": "hamad@hamada",
+      "id": 5
+    },
+    {
+      "username": "hamada",
+      "password": "hamada",
+      "email": "hamad@hamada",
+      "id": 6
+    },
+    {
+      "admin": false,
+      "username": "hamada",
+      "password": "hamada",
+      "email": "hamad@hamada",
+      "id": 7
+    },
+    {
+      "admin": false,
+      "email": "abdelrahman.iamu@gmail.com",
+      "username": "Abdelrahman Ibrahim",
+      "password": "2abodaaagjkhjk567yuk",
+      "id": 8
+    },
+    {
+      "admin": false,
+      "email": "abdelrahman.iamu@gmail.com",
+      "username": "assdbv",
+      "password": "weerdfgdfhrthr34534",
+      "id": 9
+    },
+    {
+      "admin": false,
+      "email": "abdelrahman.iamu@gmail.com",
+      "username": "assdbv",
+      "password": "weerdfgdfhrthr34534",
+      "id": 10
+    },
+    {
+      "admin": false,
+      "email": "abdelrahman.iamu@gmail.com",
+      "username": "assdbv",
+      "password": "weerdfgdfhrthr34534",
+      "id": 11
+    },
+    {
+      "admin": false,
+      "email": "abdelrahman.iamu@gmail.com",
+      "username": "assdbv",
+      "password": "weerdfgdfhrthr34534",
+      "id": 12
+    },
+    {
+      "admin": false,
+      "email": "abdelrahman.iamu@gmail.com",
+      "username": "assdbv",
+      "password": "weerdfgdfhrthr34534",
+      "id": 13
+    },
+    {
+      "admin": false,
+      "email": "abdelrahman.iamu@gmail.com",
+      "username": "assdbv",
+      "password": "weerdfgdfhrthr34534",
+      "id": 14
+    },
+    {
+      "admin": false,
+      "email": "abdelrahman.iamu@gmail.com",
+      "username": "assdbv",
+      "password": "weerdfgdfhrthr34534",
+      "id": 15
+    },
+    {
+      "admin": false,
+      "email": "hossam@hossam.com",
+      "username": "hossam97",
+      "password": "fghfgj2952114",
+      "id": 16
+    },
+    {
+      "admin": false,
+      "email": "hossam@hossam.com",
+      "username": "hossam97",
+      "password": "fghfgj2952114",
+      "id": 17
+    },
+    {
+      "admin": false,
+      "email": "hossam@hossam.com",
+      "username": "hossam97",
+      "password": "fghfgj2952114",
+      "id": 18
+    },
+    {
+      "admin": false,
+      "email": "hossam@hossam.com",
+      "username": "hossam97",
+      "password": "fghfgj2952114",
+      "id": 19
+    },
+    {
+      "admin": false,
+      "email": "hossam@hossam.com",
+      "username": "hossam97",
+      "password": "fghfgj2952114",
+      "id": 20
+    },
+    {
+      "admin": false,
+      "email": "hossam@hossam.com",
+      "username": "hossam97",
+      "password": "fghfgj2952114",
+      "id": 21
+    },
+    {
+      "admin": false,
+      "email": "hossam@hossam.com",
+      "username": "hossam97",
+      "password": "fghfgj2952114",
+      "id": 22
+    },
+    {
+      "admin": false,
+      "email": "hossam@hossam.com",
+      "username": "hossam97",
+      "password": "fghfgj2952114",
+      "id": 23
+    },
+    {
+      "admin": false,
+      "email": "addosanad@yahoo.com",
+      "username": "Abdoe33",
+      "password": "dfgfg345345",
+      "id": 24
+    },
+    {
+      "admin": false,
+      "email": "addosanad@yahoo.com",
+      "username": "Abdoe33",
+      "password": "dfgfg345345",
+      "id": 25
+    },
+    {
+      "admin": false,
+      "email": "dfgdfhtr@dfhfgj.com",
+      "username": "jasdser",
+      "password": "dfghdfhfg45645645",
+      "id": 26
+    },
+    {
+      "admin": false,
+      "email": "fgdfg2fgg@gfghfg.com",
+      "username": "rgdfgdf",
+      "password": "fdhfghgf34534556",
+      "id": 27
+    },
+    {
+      "admin": false,
+      "email": "abdo@abdo.com",
+      "username": "abdullah97",
+      "password": "fgdfgfd46456457",
+      "id": 28
+    }
+  ]
+}

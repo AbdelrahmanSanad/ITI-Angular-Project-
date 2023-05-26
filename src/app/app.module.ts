@@ -10,6 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { UserHeadingComponent } from './components/user-heading/user-heading.component';
 import { ErrorComponent } from './components/error/error.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { ErrorComponent } from './components/error/error.component';
     UserInfoComponent,
     UserHeadingComponent,
     ErrorComponent,
+    NavBarComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

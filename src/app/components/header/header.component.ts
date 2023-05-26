@@ -113,6 +113,16 @@ export class HeaderComponent implements OnInit {
           suite: this.myValidation.value.suite,
         },
       });
+
+      this.myValidation.markAsUntouched();
+      this.myValidation.patchValue({
+        name: '',
+        email: '',
+        phone: '',
+        city: '',
+        suite: '',
+        street: '',
+      });
     }
   }
 
