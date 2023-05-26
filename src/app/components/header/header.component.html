@@ -1,82 +1,93 @@
-<div class="header-container">
-  <div class="logo">
-    <a href="#"> LOGO </a>
-  </div>
-  <div class="items-container">
-    <div class="items">
-      <a href="#">Packages </a>
-    </div>
-    <div class="items">
-      <a href="#">Offers </a>
-    </div>
-    <div class="items">
-      <a href="#">Contact Us </a>
-    </div>
-    <div class="items">
-      <a href="#">Currency($) </a>
-    </div>
-    <div class="items">
-      <a href="#">Language(EN) </a>
-    </div>
-    <div class="items">
-      <a href="#">Sign In </a>
-    </div>
-    <div class="items">
-      <a href="#">Sign Up </a>
-    </div>
-
-  </div>
-
-</div>
-
-<div id="myForm">
+<div id="myForm" *ngIf="showPopUp" (click)="hideFormOnBgClick($event)">
   <div class="formContainer">
-    <div class="exit">X</div>
+    <div class="exit" (click)="showPopUp = false">X</div>
     <form style="width: 100%" [formGroup]="myValidation">
-      <h4 class="user-info">User Information</h4>
+      <h4 class="user-info-head">User Information</h4>
       <hr />
-      <div class="inputContainer">
-        <label>Name</label>
-        <input [ngClass]="nameNotValid() ? 'red' : ''" type="text" name="Name" formControlName="name" />
-      </div>
-      <div *ngIf="nameNotValid()" style="color: red; font-size: 0.8em; text-align: center">
-        Please Enter A valid Name
-      </div>
-      <div class="inputContainer">
-        <label>Email</label><input [ngClass]="emailNotValid() ? 'red' : ''" type="text" name="email"
-          formControlName="email" />
-      </div>
-      <div *ngIf="emailNotValid()" style="color: red; font-size: 0.8em; text-align: center">
-        Please Enter A valid Email
+
+      <div class="name-email-cont">
+        <div class="user-name-container in-field">
+          <label for="user-name">Name</label>
+          <input
+            id="user-name"
+            placeholder="eg John Doe"
+            [ngClass]="nameNotValid() ? 'red' : ''"
+            type="text"
+            name="Name"
+            formControlName="name"
+          />
+          <div
+            *ngIf="nameNotValid()"
+            style="color: red; font-size: 0.8em; text-align: center"
+          >
+            Please Enter A valid Name
+          </div>
+        </div>
+
+        <div class="email-addr-container in-field">
+          <label for="email-addr">Email</label
+          ><input
+            id="email-addr"
+            placeholder="eg jhondoe@gmail.com"
+            [ngClass]="emailNotValid() ? 'red' : ''"
+            type="text"
+            name="email"
+            formControlName="email"
+          />
+          <div
+            *ngIf="emailNotValid()"
+            style="color: red; font-size: 0.8em; text-align: center"
+          >
+            Please Enter A valid Email
+          </div>
+        </div>
       </div>
 
-      <div class="inputContainer">
-        <label>Phone</label><input [ngClass]="phoneNotValid() ? 'red' : ''" type="number" formControlName="phone" />
-      </div>
-      <div *ngIf="phoneNotValid()" style="color: red; font-size: 0.8em; text-align: center">
-        Please Enter A valid Phone
+      <div class="phone-num-container in-field">
+        <label for="phone-num">Phone</label
+        ><input
+          id="phone-num"
+          placeholder="eg 01234567899"
+          [ngClass]="phoneNotValid() ? 'red' : ''"
+          type="text"
+          formControlName="phone"
+        />
+        <div *ngIf="phoneNotValid()" style="color: red; font-size: 0.8em">
+          Please Enter A valid Phone
+        </div>
       </div>
 
-      <div>
-        <h6 style="margin-left: 70px">Address</h6>
-        <div class="inputContainer">
-          <label>Street</label>
-          <input [ngClass]="streetNotValid() ? 'red' : ''" type="text" formControlName="street" />
+      <div class="address-container in-field">
+        <label>Address</label>
+        <div class="address-fields">
+          <input
+            placeholder="City"
+            type="text"
+            [ngClass]="cityNotValid() ? 'red' : ''"
+            formControlName="city"
+          />
+          <input
+            placeholder="Street"
+            [ngClass]="streetNotValid() ? 'red' : ''"
+            type="text"
+            formControlName="street"
+          />
+          <input
+            placeholder="Suite"
+            [ngClass]="suiteNotValid() ? 'red' : ''"
+            type="text"
+            formControlName="suite"
+          />
         </div>
-        <div class="inputContainer">
-          <label>Suite</label>
-          <input [ngClass]="suiteNotValid() ? 'red' : ''" type="text" formControlName="suite" />
-        </div>
-        <div class="inputContainer">
-          <label>City</label>
-          <input type="text" [ngClass]="cityNotValid() ? 'red' : ''" formControlName="city" />
-        </div>
-        <div *ngIf="cityNotValid()" style="color: red; font-size: 0.8em; text-align: center">
-          Please Enter A valid City
+        <div
+          *ngIf="cityNotValid()"
+          style="color: red; font-size: 0.8em; text-align: center"
+        >
+          Please Enter a Valid Address Credintials
         </div>
       </div>
-      <div class="inputContainer">
-        <input type="button" value="Register" (click)="getData()" />
+      <div class="submit-btn-container">
+        <input type="button" value="Save" (click)="saveBtnClicked()" />
       </div>
     </form>
   </div>
@@ -86,12 +97,12 @@
   <div>
     <a class="user" href="#"> Users</a>
   </div>
-  <div style="cursor: pointer;">
-    <a class="addUser" (click)="getForm()">+ Add users</a>
+  <div style="cursor: pointer">
+    <a class="addUser" (click)="addNewUserBtn()">+ Add New users</a>
   </div>
 </section>
 
-<div style="width: 90%; margin: auto;" class="overflow-auto">
+<div style="width: 90%; margin: auto" class="overflow-auto">
   <table class="table table-striped">
     <thead>
       <tr>
@@ -105,15 +116,32 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor=" let user of myUsers">
-        <th scope="row">{{user.id}}</th>
-        <td> <a routerLink="/users/{{user.id}}"> {{user.name}} </a></td>
-        <td>{{user.email}}</td>
-        <td>{{user.phone}}</td>
-        <td>{{user.address.city}}</td>
-        <td>Edit</td>
-        <td>Delete</td>
+      <tr *ngFor="let user of myUsers">
+        <th scope="row">{{ user.id }}</th>
+        <td>
+          <a routerLink="/users/{{ user.id }}"> {{ user.name }} </a>
+        </td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.address.city }}</td>
+        <td><button (click)="editUserBtn(user)">Edit</button></td>
+        <td><button (click)="deleteUserBtn(user.id)">Delete</button></td>
       </tr>
     </tbody>
+
+    <div
+      class="confirm-dell"
+      id="con-bg"
+      *ngIf="show"
+      (click)="hideDellOnBgClick($event)"
+    >
+      <div class="confirm-dell-container">
+        <h3>Do You Really Want To Delete User {{ userId }} ?</h3>
+        <div class="btns">
+          <button (click)="yesDell()">Yes</button>
+          <button (click)="noDell()">No</button>
+        </div>
+      </div>
+    </div>
   </table>
 </div>

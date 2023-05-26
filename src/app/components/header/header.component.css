@@ -1,36 +1,20 @@
+/* Glopals */
 * {
   box-sizing: border-box;
 }
-.items {
-  display: inline-block;
-}
-.items-container {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 65%;
-  flex-wrap: wrap;
-}
-.header-container {
-  display: flex;
 
-  justify-content: space-around;
-  align-items: center;
-  padding-top: 20px 0px 20px 0px;
-  height: 70px;
+button {
+  border: none;
+  border-radius: 5px;
+  background-color: #2c8be461;
+  color: white;
+  transition: 0.3s;
 }
-.logo a {
-  color: rgb(243, 167, 26);
-  text-decoration: none;
-  display: inline-block;
+
+button:hover {
+  background-color: #2c8be4;
 }
-.items-container a {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  text-decoration: none;
-  color: black;
-  font-size: 1.06em;
-}
+/* Blue Section */
 section {
   height: 75px;
   display: flex;
@@ -55,32 +39,7 @@ section div {
 }
 /* Input Styles */
 
-.hidden {
-  display: none;
-}
-.inputContainer {
-  flex-wrap: wrap;
-  width: 75%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-input {
-  flex-wrap: wrap;
-  display: inline-block;
-  border: none;
-  border-bottom: 0.5px solid saddlebrown;
-}
-label {
-  flex-wrap: wrap;
-  display: inline-block;
-}
-
+/***************** FORM *******************/
 #myForm {
   position: fixed;
   top: 0;
@@ -90,31 +49,31 @@ label {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.red {
-  border: 1px solid red;
-}
-
 .formContainer {
-  position: relative;
-  margin: auto;
-  flex-wrap: wrap;
-  display: flex;
-  align-items: center;
-  width: 40%;
-  min-height: 300px;
-  border-radius: 8px;
-  justify-content: center;
-  background-color: #fff;
-  margin-top: 70px;
-  padding: 35px;
-  z-index: 6;
+  position: fixed;
+  width: 550px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
 }
 
-.user-info {
+@media (max-width: 590px) {
+  .formContainer {
+    max-width: 90vw;
+  }
+}
+
+.user-info-head {
   text-align: center;
   color: orange;
+  font-size: 20px;
 }
-
 .exit {
   position: absolute;
   right: 10px;
@@ -128,4 +87,126 @@ label {
   border-radius: 50%;
   cursor: pointer;
   font-size: 12px;
+}
+.red {
+  border: 1px solid red;
+}
+
+.name-email-cont {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 590px) {
+  .name-email-cont {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.in-field {
+  margin-bottom: 10px;
+}
+
+.address-fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.address-fields input {
+  max-width: 30%;
+}
+
+.user-name-container {
+  min-width: 40%;
+}
+
+#user-name,
+#email-addr,
+#phone-num {
+  min-width: 230px;
+}
+
+/* Label styles */
+label {
+  cursor: pointer;
+  display: block;
+  margin: 0 0 5px 1px;
+
+  font-weight: bold;
+}
+
+/* Input field styles */
+#myForm input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+#myForm input:focus {
+  outline: none;
+}
+
+/* Invalid input field styles */
+.red {
+  border-color: red;
+}
+
+/* Error message styles */
+div[style="color: red; font-size: 0.8em; text-align: center"] {
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* Save button styles */
+#myForm input[type="button"] {
+  background-color: #2c8be4bf;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#myForm input[type="button"]:hover {
+  background-color: #2c8be4;
+}
+
+/* Dell Confirmation */
+.confirm-dell {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-dell-container {
+  background-color: #eee;
+  padding: 20px 30px;
+  border-radius: 8px;
+  z-index: 100;
+}
+
+.confirm-dell .btns {
+  display: flex;
+  gap: 15px;
+}
+
+.confirm-dell .btns button {
+  padding: 2px 10px;
+}
+
+.confirm-dell .btns button:first-child {
+  background-color: #ff005780;
+}
+.confirm-dell .btns button:first-child:hover {
+  background-color: #ff0057;
 }
