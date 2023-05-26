@@ -1,1 +1,32 @@
-<p>login works!</p>
+<div class="container">
+  <form class="w-50 m-auto mt-5 p-5 rounded-5" [formGroup]="userForm">
+    <div class="mb-3">
+      <label for="inputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="inputEmail1"
+        aria-describedby="emailHelp"
+        formControlName="email"
+      />
+      <div *ngIf="emailNotValid()" style="color: red">
+        Email not valid please enter a valid Email
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="inputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="inputPassword1"
+        formControlName="password"
+      />
+      <div *ngIf="passwordNotValid()" style="color: red">
+        Password not valid please enter a valid Password
+      </div>
+    </div>
+    <button type="submit" (click)="login()" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+</div>
