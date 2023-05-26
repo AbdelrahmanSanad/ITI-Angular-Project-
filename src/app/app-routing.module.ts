@@ -6,18 +6,21 @@ import { ImagesComponent } from './components/images/images.component';
 import { ErrorComponent } from './components/error/error.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'users', pathMatch: 'full' },
-  { path: 'users', component: HeaderComponent },
+  { path: 'users', component: HeaderComponent,canActivate:[AuthGuard] },
   {
     path: 'users/:id',
     component: UserInfoComponent,
     children: [{ path: 'album/:id', component: ImagesComponent }],
+    canActivate:[AuthGuard]
   },
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  { path: '**', component: ErrorComponent }
+  { path: '**', component: ErrorComponent },
+
 
 
 ];

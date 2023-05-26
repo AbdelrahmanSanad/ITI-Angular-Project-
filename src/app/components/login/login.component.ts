@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
 import { Router } from '@angular/router';
+import{AuthService} from 'src/app/Services/routing-guard.service'
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   allUsers: any;
-  constructor(private auth: AuthenticationService, private myRoute: Router) {}
+  constructor(private auth: AuthenticationService, private myRoute: Router ,private guard:AuthService) {}
 
   ngOnInit(): void {
     this.auth.getUsers().subscribe({
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
     ]),
     password: new FormControl('', [
       Validators.required,
-      Validators.pattern(/^(?=.[A-Za-z])(?=.\d)[A-Za-z\d]{8,}$/),
+
     ]),
   });
 
@@ -49,7 +50,9 @@ export class LoginComponent implements OnInit {
   }
   // ---------------------------------------------
   login() {
+
     if (this.userForm.valid) {
+      console.log('hamada');
       const email = this.userForm.controls['email'].value;
       const pass = this.userForm.controls['password'].value;
       this.auth.getUserByEmail(email).subscribe({
@@ -57,10 +60,21 @@ export class LoginComponent implements OnInit {
           if (userData[0].password == pass) {
             console.log('Secure');
             console.log(userData);
+            this.guard.canLogin();
+            sessionStorage.setItem('status','true')
+            this.myRoute.navigateByUrl('/users');
+
+
+
+
+          }
+          else
+          {
+            console.log('abdullah')
           }
         },
         error: (error: any) => {
-          console.log(error);
+          console.log("error");
         },
       });
     }
