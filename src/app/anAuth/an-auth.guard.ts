@@ -5,7 +5,6 @@ import {
   RouterStateSnapshot,
   Router,
 } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AuthService } from '../Services/routing-guard.service';
 @Injectable({
   providedIn: 'root',
