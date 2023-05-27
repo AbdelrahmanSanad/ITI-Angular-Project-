@@ -28,7 +28,7 @@
     <button type="submit" (click)="login()" class="btn btn-primary">
       Submit
     </button>
-    <div  *ngIf="mySign()"  style="color: red">
+    <div class="error"  *ngIf="mySign()">
       Email or Password wrong Please insert valid Data
     </div>
   </form>

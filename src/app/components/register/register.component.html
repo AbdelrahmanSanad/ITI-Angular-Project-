@@ -3,19 +3,19 @@
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input type="email" class="form-control" id="username" aria-describedby="emailHelp" formControlName="username">
-        <div *ngIf="usernameNotValid()" style="color: red;">username not valid please enter a valid username</div>
+        <div *ngIf="usernameNotValid()" class="error">username not valid please enter a valid username</div>
       </div>
   <div class="mb-3">
     <label for="inputEmail1" class="form-label">Email address</label>
     <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" formControlName="email">
-    <div *ngIf="emailNotValid()" style="color: red;">Email not valid please enter a valid Email</div>
-    <div *ngIf="emailRepeated" style="color: red;">This Email is Already Exists</div>
+    <div *ngIf="emailNotValid()" class="error" >Email not valid please enter a valid Email</div>
+    <div *ngIf="emailRepeated" class="error">This Email is Already Exists</div>
 
   </div>
   <div class="mb-3">
     <label for="inputPassword1" class="form-label">Password</label>
     <input type="password" class="form-control" id="inputPassword1" formControlName="password">
-    <div *ngIf="passwordNotValid()" style="color: red;">Password not valid please enter a valid Password</div>
+    <div *ngIf="passwordNotValid()" class="error">Password not valid please enter a valid Password</div>
   </div>
   <button type="submit" (click)="addUser()" class="btn btn-primary">Submit</button>
 </form>
