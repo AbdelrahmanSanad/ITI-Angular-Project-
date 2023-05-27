@@ -1,10 +1,10 @@
 <div class="header-container">
   <div class="logo">
-    <a href="#"> LOGO </a>
+    <a routerLink="/"> LOGO </a>
   </div>
   <div class="items-container">
     <div class="items">
-      <a href="#">Packages </a>
+      <a>Packages </a>
     </div>
     <div class="items">
       <a href="#">Offers </a>
@@ -19,13 +19,13 @@
       <a href="#">Language(EN) </a>
     </div>
     <div class="items" *ngIf="!auth()">
-      <a routerLink="/login" >Sign In </a>
+      <a routerLink="/login">Sign In </a>
     </div>
     <div class="items" *ngIf="!auth()">
-      <a routerLink="/register" >Sign Up </a>
+      <a routerLink="/register">Sign Up </a>
     </div>
     <div class="items" *ngIf="auth()">
-      <a routerLink="/register" (click)="signOut()" >Sign Out </a>
+      <a routerLink="/login" (click)="signOut()">Sign Out </a>
     </div>
   </div>
 </div>
