@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
 import { Router } from '@angular/router';
-import{AuthService} from 'src/app/Services/routing-guard.service'
+import { AuthService } from 'src/app/Services/routing-guard.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +11,11 @@ import{AuthService} from 'src/app/Services/routing-guard.service'
 })
 export class LoginComponent implements OnInit {
   allUsers: any;
-  constructor(private auth: AuthenticationService, private myRoute: Router ,private guard:AuthService) {}
+  constructor(
+    private auth: AuthenticationService,
+    private myRoute: Router,
+    private guard: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.auth.getUsers().subscribe({
@@ -29,10 +33,7 @@ export class LoginComponent implements OnInit {
         /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
       ),
     ]),
-    password: new FormControl('', [
-      Validators.required,
-
-    ]),
+    password: new FormControl('', [Validators.required]),
   });
 
   emailNotValid() {
@@ -50,7 +51,6 @@ export class LoginComponent implements OnInit {
   }
   // ---------------------------------------------
   login() {
-
     if (this.userForm.valid) {
       console.log('hamada');
       const email = this.userForm.controls['email'].value;
@@ -60,29 +60,20 @@ export class LoginComponent implements OnInit {
           if (userData[0].password == pass) {
             console.log('Secure');
             console.log(userData);
-            this.guard.canLogin();
-            sessionStorage.setItem('status','true')
+            this.guard.login();
+            sessionStorage.setItem('status', 'true');
             this.myRoute.navigateByUrl('/users');
-            if(userData[0].admin === true)
-            {
-              sessionStorage.setItem('admin','true')
+            if (userData[0].admin === true) {
+              sessionStorage.setItem('admin', 'true');
+            } else {
+              sessionStorage.setItem('admin', 'false');
             }
-            else
-            {
-              sessionStorage.setItem('admin','false')
-            }
-
-
-
-
-          }
-          else
-          {
-            console.log('abdullah')
+          } else {
+            console.log('abdullah');
           }
         },
-        error: (error: any) =>{
-          console.log("error");
+        error: (error: any) => {
+          console.log('error');
         },
       });
     }
