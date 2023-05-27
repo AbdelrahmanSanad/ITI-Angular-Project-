@@ -7,4 +7,24 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
+  admin:boolean=true
+  logged:any;
+
+
+  auth()
+  {
+    if(sessionStorage.getItem('status') == 'true')
+    {
+      return true
+    }
+    else
+    {
+      return false
+    }
+  }
+
+  signOut()
+  {
+    sessionStorage.setItem('status','false')
+  }
 }

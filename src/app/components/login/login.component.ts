@@ -63,6 +63,14 @@ export class LoginComponent implements OnInit {
             this.guard.canLogin();
             sessionStorage.setItem('status','true')
             this.myRoute.navigateByUrl('/users');
+            if(userData[0].admin === true)
+            {
+              sessionStorage.setItem('admin','true')
+            }
+            else
+            {
+              sessionStorage.setItem('admin','false')
+            }
 
 
 
@@ -73,7 +81,7 @@ export class LoginComponent implements OnInit {
             console.log('abdullah')
           }
         },
-        error: (error: any) => {
+        error: (error: any) =>{
           console.log("error");
         },
       });

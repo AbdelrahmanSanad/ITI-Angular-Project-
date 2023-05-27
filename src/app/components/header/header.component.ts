@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   showPopUp: boolean = false;
   userId: any;
   show: boolean = false;
+  admin:boolean= true
   // #######################################
 
   constructor(
@@ -222,4 +223,20 @@ export class HeaderComponent implements OnInit {
       this.show = false;
     }
   }
+
+  auth()
+  {
+    if(sessionStorage.getItem('admin')==='false')
+    {
+      return false
+    }
+    else
+    {
+        return true
+    }
+
+
+
+  }
+
 }

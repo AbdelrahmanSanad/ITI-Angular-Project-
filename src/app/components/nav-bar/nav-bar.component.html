@@ -18,11 +18,14 @@
     <div class="items">
       <a href="#">Language(EN) </a>
     </div>
-    <div class="items">
-      <a routerLink="/login">Sign In </a>
+    <div class="items" *ngIf="!auth()">
+      <a routerLink="/login" >Sign In </a>
     </div>
-    <div class="items">
-      <a routerLink="/register">Sign Up </a>
+    <div class="items" *ngIf="!auth()">
+      <a routerLink="/register" >Sign Up </a>
+    </div>
+    <div class="items" *ngIf="auth()">
+      <a routerLink="/register" (click)="signOut()" >Sign Out </a>
     </div>
   </div>
 </div>
