@@ -7,22 +7,24 @@ import { ErrorComponent } from './components/error/error.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './auth/auth.guard';
+import { anAuthGuard } from './anAuth/an-auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'users', pathMatch: 'full' },
-  { path: 'users', component: HeaderComponent,canActivate:[AuthGuard] },
+  { path: 'users', component: HeaderComponent, canActivate: [AuthGuard] },
   {
     path: 'users/:id',
     component: UserInfoComponent,
     children: [{ path: 'album/:id', component: ImagesComponent }],
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard],
   },
-  {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
+  { path: 'login', component: LoginComponent, canActivate: [anAuthGuard] },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    canActivate: [anAuthGuard],
+  },
   { path: '**', component: ErrorComponent },
-
-
-
 ];
 
 @NgModule({
