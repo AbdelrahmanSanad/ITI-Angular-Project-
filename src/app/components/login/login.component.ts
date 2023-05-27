@@ -53,15 +53,11 @@ export class LoginComponent implements OnInit {
   // ---------------------------------------------
   login() {
     if (this.userForm.valid) {
-      console.log('hamada');
       const email = this.userForm.controls['email'].value;
       const pass = this.userForm.controls['password'].value;
       this.auth.getUserByEmail(email).subscribe({
         next: (userData: any) => {
           if (userData[0].password == pass) {
-            console.log('Secure');
-
-            console.log(userData);
             this.guard.login();
             sessionStorage.setItem('status', 'true');
             this.signIn= true;
@@ -80,7 +76,6 @@ export class LoginComponent implements OnInit {
           }
         },
         error: (error: any) => {
-          console.log('error');
         },
       });
     }

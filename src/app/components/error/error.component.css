@@ -9,3 +9,11 @@ h3
 {
   font-size:1.3em
 }
+div
+{
+  display: flex;
+  justify-content: center;
+  align-items: center; height:600px;
+  background-color: azure;
+  flex-direction: column;
+}

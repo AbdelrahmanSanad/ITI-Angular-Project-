@@ -91,11 +91,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.userService.getUsers().subscribe({
       next: (data) => {
-        console.log(data);
+        //console.log(data);
         this.myUsers = data;
       },
       error: (err) => {
-        console.log(err);
+        //console.log(err);
       },
     });
   }
@@ -180,11 +180,11 @@ export class HeaderComponent implements OnInit {
 
       // Replacing one Object with the new Obj in the Array
       this.myUsers.splice(this.userId - 1, 1, newObj);
-      console.log('Valid Credentials 👍');
-      console.log(this.myValidation.value);
+      // console.log('Valid Credentials 👍');
+      // console.log(this.myValidation.value);
       return;
     }
-    console.log('Not Valid 🤷‍♂️');
+    // console.log('Not Valid 🤷‍♂️');
   }
 
   //##################### Delete user #####################
@@ -200,7 +200,7 @@ export class HeaderComponent implements OnInit {
       const element = this.myUsers[i];
       element.id = element.id - 1;
     }
-    console.log('Deleted user = ' + this.userId);
+    // console.log('Deleted user = ' + this.userId);
     this.show = false;
   }
 
@@ -217,7 +217,7 @@ export class HeaderComponent implements OnInit {
 
   hideDellOnBgClick(e: MouseEvent) {
     const clickedElement = e.target as HTMLElement;
-    console.log(clickedElement);
+    //console.log(clickedElement);
 
     if (clickedElement.id == 'con-bg') {
       this.show = false;
