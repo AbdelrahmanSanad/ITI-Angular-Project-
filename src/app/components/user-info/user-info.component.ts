@@ -12,6 +12,7 @@ export class UserInfoComponent implements OnInit {
   User: any;
   Albums: any;
   AlbumsImages: any[] = [];
+  err: any;
   constructor(
     myRoute: ActivatedRoute,
     public OurService: OurServiceService,
@@ -25,9 +26,7 @@ export class UserInfoComponent implements OnInit {
       next: (photos) => {
         this.AlbumsImages.push({ id, data: photos });
       },
-      error: (err) => {
-        console.log(err);
-      },
+      error: (err) => {},
     });
   }
   scroll(el: HTMLElement) {
@@ -38,9 +37,10 @@ export class UserInfoComponent implements OnInit {
     this.OurService.getUserById(this.ID).subscribe({
       next: (data) => {
         this.User = data;
+        this.err = false;
       },
       error: (err) => {
-        console.log(err);
+        this.err = true;
       },
     });
     // get user albums
@@ -52,9 +52,7 @@ export class UserInfoComponent implements OnInit {
           this.getAlbumImages(album.id);
         });
       },
-      error: (err) => {
-        console.log(err);
-      },
+      error: (err) => {},
     });
   }
 }

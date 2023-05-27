@@ -36,7 +36,7 @@ export class ImagesComponent implements OnInit {
       next: (data) => {
         this.imageList = data;
       },
-      error: (err) => console.log(err),
+      error: (err) => {},
     });
   }
   // get album images when the image component called for the first time
