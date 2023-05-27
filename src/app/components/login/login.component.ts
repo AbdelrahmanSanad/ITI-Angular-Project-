@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/Services/routing-guard.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  signIn:boolean=true;
   allUsers: any;
   constructor(
     private auth: AuthenticationService,
@@ -59,9 +60,11 @@ export class LoginComponent implements OnInit {
         next: (userData: any) => {
           if (userData[0].password == pass) {
             console.log('Secure');
+
             console.log(userData);
             this.guard.login();
             sessionStorage.setItem('status', 'true');
+            this.signIn= true;
             this.myRoute.navigateByUrl('/users');
             if (userData[0].admin === true) {
               sessionStorage.setItem('admin', 'true');
@@ -69,13 +72,30 @@ export class LoginComponent implements OnInit {
               sessionStorage.setItem('admin', 'false');
             }
           } else {
-            console.log('abdullah');
+            //Invalid Sign in Response
+            this.signIn=false;
+
+
+
           }
         },
         error: (error: any) => {
           console.log('error');
         },
       });
+    }
+  }
+
+  mySign()
+  {
+    if(this.signIn === false)
+    {
+      return true;
+    }
+
+    else
+    {
+      return false;
     }
   }
 }

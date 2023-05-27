@@ -15,27 +15,33 @@ button:hover {
 }
 
 .items {
-  display: inline-block;
+  padding: 5px;
 }
+
 .items-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: 65%;
   flex-wrap: wrap;
+
 }
 .header-container {
-  display: flex;
 
-  justify-content: space-around;
+  display: flex;
+  justify-content:space-between;
   align-items: center;
   padding-top: 20px 0px 20px 0px;
   height: 70px;
 }
 .logo a {
-  color: rgb(243, 167, 26);
+  margin-left: 25px;
+  color: rgb(243, 168, 28);
   text-decoration: none;
   display: inline-block;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 1.8em;
 }
 .items-container a {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -43,4 +49,13 @@ button:hover {
   text-decoration: none;
   color: black;
   font-size: 1.06em;
+}
+
+.items-container a:hover
+{
+    color: rgb(199, 140, 29);
+}
+.items-container a:active
+{
+  color: #2c8be4;
 }

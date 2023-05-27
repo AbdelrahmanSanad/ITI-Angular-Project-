@@ -20,7 +20,7 @@ section {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(44, 139, 228);
+  background-color: #376aa6;
 }
 section div {
   display: inline-block;

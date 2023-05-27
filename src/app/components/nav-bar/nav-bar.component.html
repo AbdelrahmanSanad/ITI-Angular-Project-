@@ -1,31 +1,33 @@
-<div class="header-container">
-  <div class="logo">
-    <a routerLink="/"> LOGO </a>
+  <div class="header-container" style=" min-height: 75px; height: auto;">
+    <div class="logo" >
+      <a routerLink="/"> LOGO </a>
+    </div>
+    <div class="items-container">
+      <div class="items">
+        <a href="#">Packages </a>
+      </div>
+      <div class="items">
+        <a href="#">Offers </a>
+      </div>
+      <div class="items">
+        <a href="#">Contact Us </a>
+      </div>
+      <div class="items">
+        <a href="#">Currency($) </a>
+      </div>
+      <div class="items">
+        <a href="#">Language(EN) </a>
+      </div>
+      <div class="items" *ngIf="!auth()">
+        <a routerLink="/login">Sign In </a>
+      </div>
+      <div class="items" *ngIf="!auth()">
+        <a routerLink="/register">Sign Up </a>
+      </div>
+      <div class="items" *ngIf="auth()">
+        <a routerLink="/login" (click)="signOut()">Sign Out </a>
+      </div>
+    </div>
   </div>
-  <div class="items-container">
-    <div class="items">
-      <a>Packages </a>
-    </div>
-    <div class="items">
-      <a href="#">Offers </a>
-    </div>
-    <div class="items">
-      <a href="#">Contact Us </a>
-    </div>
-    <div class="items">
-      <a href="#">Currency($) </a>
-    </div>
-    <div class="items">
-      <a href="#">Language(EN) </a>
-    </div>
-    <div class="items" *ngIf="!auth()">
-      <a routerLink="/login">Sign In </a>
-    </div>
-    <div class="items" *ngIf="!auth()">
-      <a routerLink="/register">Sign Up </a>
-    </div>
-    <div class="items" *ngIf="auth()">
-      <a routerLink="/login" (click)="signOut()">Sign Out </a>
-    </div>
-  </div>
-</div>
+
+

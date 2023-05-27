@@ -9,9 +9,9 @@
         aria-describedby="emailHelp"
         formControlName="email"
       />
-      <div *ngIf="emailNotValid()" style="color: red">
+      <!-- <div *ngIf="emailNotValid()" style="color: red">
         Email not valid please enter a valid Email
-      </div>
+      </div> -->
     </div>
     <div class="mb-3">
       <label for="inputPassword1" class="form-label">Password</label>
@@ -21,12 +21,15 @@
         id="inputPassword1"
         formControlName="password"
       />
-      <div *ngIf="passwordNotValid()" style="color: red">
+      <!-- <div *ngIf="passwordNotValid()" style="color: red">
         Password not valid please enter a valid Password
-      </div>
+      </div> -->
     </div>
     <button type="submit" (click)="login()" class="btn btn-primary">
       Submit
     </button>
+    <div  *ngIf="mySign()"  style="color: red">
+      Email or Password wrong Please insert valid Data
+    </div>
   </form>
 </div>
