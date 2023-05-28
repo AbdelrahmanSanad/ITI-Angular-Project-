@@ -210,3 +210,9 @@ div[style="color: red; font-size: 0.8em; text-align: center"] {
 .confirm-dell .btns button:first-child:hover {
   background-color: #ff0057;
 }
+
+.submit-btn-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}

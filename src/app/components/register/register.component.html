@@ -1,23 +1,63 @@
-  <div class="container  ">
-    <form class=" w-50 m-auto mt-5 p-5  rounded-5" [formGroup]="userForm">
+<div class="container">
+  <div class="row">
+    <h2>Register Now</h2>
+    <form
+      class="col-11 col-md-8 col-lg-6 m-auto mt-4 p-5 rounded-4 register-form"
+      [formGroup]="userForm"
+    >
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
-        <input type="email" class="form-control" id="username" aria-describedby="emailHelp" formControlName="username">
-        <div *ngIf="usernameNotValid()" class="error">username not valid please enter a valid username</div>
+        <input
+          type="email"
+          class="form-control"
+          id="username"
+          aria-describedby="emailHelp"
+          formControlName="username"
+        />
+        <div *ngIf="usernameNotValid()" class="error">
+          username not valid please enter a valid username
+        </div>
       </div>
-  <div class="mb-3">
-    <label for="inputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="inputEmail1" aria-describedby="emailHelp" formControlName="email">
-    <div *ngIf="emailNotValid()" class="error" >Email not valid please enter a valid Email</div>
-    <div *ngIf="emailRepeated" class="error">This Email is Already Exists</div>
-
+      <div class="mb-3">
+        <label for="inputEmail1" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="email"
+        />
+        <div *ngIf="emailNotValid()" class="error">
+          Email not valid please enter a valid Email
+        </div>
+        <div *ngIf="emailRepeated" class="error">
+          Sorry but That Email Already Exists Try
+          <a href="login">Sign In</a> Instead 😁
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="inputPassword1" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="inputPassword1"
+          formControlName="password"
+        />
+        <div *ngIf="passwordNotValid()" class="error">
+          Password not valid please enter a valid Password
+        </div>
+      </div>
+      <div class="log">
+        <button
+          id="register-btn"
+          type="submit"
+          (click)="addUser()"
+          class="btn btn-primary"
+        >
+          Register
+        </button>
+        <p>Already User ! <a href="login">Login</a> instead</p>
+      </div>
+    </form>
   </div>
-  <div class="mb-3">
-    <label for="inputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="inputPassword1" formControlName="password">
-    <div *ngIf="passwordNotValid()" class="error">Password not valid please enter a valid Password</div>
-  </div>
-  <button type="submit" (click)="addUser()" class="btn btn-primary">Submit</button>
-</form>
-  </div>
-
+</div>

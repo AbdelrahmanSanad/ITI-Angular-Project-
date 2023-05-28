@@ -13,6 +13,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RegisterComponent } from './components/register/register.component';
     NavBarComponent,
     LoginComponent,
     RegisterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

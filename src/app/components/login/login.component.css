@@ -1,8 +1,48 @@
-form
-{
+form {
   background-color: #eee;
 }
-.error
-{
+.error {
   color: red;
+}
+
+a {
+  text-decoration: none;
+}
+
+.log {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .log {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.log p {
+  margin: 0;
+}
+
+h4 a {
+  color: #0d6efd;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+h2,
+h4 {
+  text-align: center;
+  color: rgb(243, 168, 28);
+}
+
+@media (max-width: 400px) {
+  .login-form {
+    padding: 1.2rem !important;
+  }
 }

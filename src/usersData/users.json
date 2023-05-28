@@ -200,6 +200,20 @@
       "username": "kareem125",
       "password": "ayhaga128",
       "id": 29
+    },
+    {
+      "admin": true,
+      "email": "hosamtarek4444@gmail.com",
+      "username": "Hoss",
+      "password": "Hoss01120399909",
+      "id": 30
+    },
+    {
+      "admin": false,
+      "email": "hosamtarek333@gmail.com",
+      "username": "hosamtarek4444",
+      "password": "hhhhhhhhhh111",
+      "id": 31
     }
   ]
 }

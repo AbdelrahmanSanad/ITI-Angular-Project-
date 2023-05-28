@@ -9,13 +9,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-
-
   // User Property is used to store The input data in it
   user: any;
   allUsers: any;
   emailRepeated = false;
   constructor(private auth: AuthenticationService, private myRoute: Router) {}
+  // To fitch All users Data On iniit
   ngOnInit(): void {
     this.auth.getUsers().subscribe({
       next: (data) => {
@@ -41,38 +40,32 @@ export class RegisterComponent implements OnInit {
       Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
     ]),
   });
-  //this Function is declared to fitch the data
 
-  // This Fnction is Implemented to Add THe New Regestiered User To the Database
+  // When clicking Register
   addUser() {
+    const registerRes = document.getElementById('register-res');
+    const msg = document.createElement('p');
+
     if (this.userForm.valid) {
-
-      // console.log(this.allUsers)
-      for (let myUser of this.allUsers) {
-        if (myUser.email == this.userForm.controls['email'].value) {
-
+      for (let user of this.allUsers) {
+        if (user.email == this.userForm.controls['email'].value) {
           this.emailRepeated = true;
-          return
+          return;
         }
       }
-          this.emailRepeated = false;
-          this.user = {
-            email: this.userForm.controls['email'].value,
-            username: this.userForm.controls['username'].value,
-            password: this.userForm.controls['password'].value,
-          };
-          this.auth.addNewUser(this.user).subscribe();
-          this.userForm.patchValue(
-            {
-              username:'',
-              password:'',
-              email:''
-            })
-            // this.myRoute.navigateByUrl('/login')
-            this.myRoute.navigate(['/login']);
-
-
-
+      this.emailRepeated = false;
+      this.user = {
+        email: this.userForm.controls['email'].value,
+        username: this.userForm.controls['username'].value,
+        password: this.userForm.controls['password'].value,
+      };
+      this.auth.addNewUser(this.user).subscribe();
+      this.userForm.patchValue({
+        username: '',
+        password: '',
+        email: '',
+      });
+      this.myRoute.navigate(['/login']);
     }
   }
   //this Functions id related to the validation of our code to show specific tag in case of the inputs not Valid

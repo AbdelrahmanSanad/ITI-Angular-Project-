@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   showPopUp: boolean = false;
   userId: any;
   show: boolean = false;
-  admin:boolean= true
+  admin: boolean = true;
   // #######################################
 
   constructor(
@@ -102,6 +102,15 @@ export class HeaderComponent implements OnInit {
   // #################################
 
   pushNewUser() {
+    const submitMsg = document.createElement('p');
+    submitMsg.style.cssText = `
+    color: Green;
+    margin: 0;
+`;
+    const submitMsgElement = document.getElementById(
+      'submit-msg'
+    ) as HTMLElement;
+
     if (this.myValidation.valid) {
       this.myUsers.push({
         id: this.myUsers.length + 1,
@@ -114,6 +123,7 @@ export class HeaderComponent implements OnInit {
           suite: this.myValidation.value.suite,
         },
       });
+      submitMsg.textContent = `User ${this.myValidation.value.name} Added Successfuly`;
 
       this.myValidation.markAsUntouched();
       this.myValidation.patchValue({
@@ -124,7 +134,15 @@ export class HeaderComponent implements OnInit {
         suite: '',
         street: '',
       });
+    } else {
+      submitMsg.style.cssText = `
+    color: red;
+    margin: 0;
+`;
+      submitMsg.textContent = `Problem Occurred`;
     }
+
+    return submitMsgElement?.replaceWith(submitMsg);
   }
 
   addNewUserBtn() {
@@ -146,6 +164,7 @@ export class HeaderComponent implements OnInit {
     } else {
       this.submitEditing();
     }
+    return;
   }
 
   //##################### Edit user #####################
@@ -165,6 +184,15 @@ export class HeaderComponent implements OnInit {
   }
 
   submitEditing() {
+    const submitMsg = document.createElement('p');
+    submitMsg.style.cssText = `
+    color: Green;
+    margin: 0;
+`;
+    const submitMsgElement = document.getElementById(
+      'submit-msg'
+    ) as HTMLElement;
+
     if (this.myValidation.valid) {
       const newObj = {
         id: this.userId,
@@ -180,11 +208,16 @@ export class HeaderComponent implements OnInit {
 
       // Replacing one Object with the new Obj in the Array
       this.myUsers.splice(this.userId - 1, 1, newObj);
-      // console.log('Valid Credentials 👍');
-      // console.log(this.myValidation.value);
-      return;
+      submitMsg.textContent = `User ${this.myValidation.value.name} Updated Successfuly`;
+    } else {
+      submitMsg.style.cssText = `
+    color: red;
+    margin: 0;
+`;
+      submitMsg.textContent = `Problem Occurred`;
     }
-    // console.log('Not Valid 🤷‍♂️');
+
+    return submitMsgElement.replaceWith(submitMsg);
   }
 
   //##################### Delete user #####################
@@ -224,19 +257,11 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  auth()
-  {
-    if(sessionStorage.getItem('admin')==='false')
-    {
-      return false
+  auth() {
+    if (sessionStorage.getItem('admin') === 'false') {
+      return false;
+    } else {
+      return true;
     }
-    else
-    {
-        return true
-    }
-
-
-
   }
-
 }
